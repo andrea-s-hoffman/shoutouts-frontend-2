@@ -1,0 +1,10 @@
+.ShoutOutForm {
+  margin: 150px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(101, 101, 161);
+  font-family: "Kdam Thmor Pro", sans-serif;
+  color: white;
+}

@@ -1,0 +1,22 @@
+body,
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: rgb(101, 101, 161);
+  text-decoration: none;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  font-family: "Kdam Thmor Pro", sans-serif;
+  text-transform: uppercase;
+}

@@ -1,0 +1,32 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(55, 55, 55);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: white;
+  font-family: "Kdam Thmor Pro", sans-serif;
+}
+
+.Header a {
+  color: rgb(101, 101, 161);
+}
+
+.Header h1 {
+  margin: 10px;
+}
+
+.Header .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.Header .user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

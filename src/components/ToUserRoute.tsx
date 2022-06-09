@@ -1,54 +1,63 @@
 import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import ShoutOut, { User } from "../models/ShoutOut";
 import {
   deleteShoutout,
-  getAllShoutOuts,
+  getAllShoutOutsToUser,
   postNewShoutOut,
   upvoteShoutout,
 } from "../services/shoutOutService";
-import "./Main.css";
-import ShoutOutComponent from "./ShoutOut";
+import ShoutOutListItem from "./ShoutOut";
 import ShoutOutForm from "./ShoutOutForm";
+import "./ToUserRoute.css";
 
-const Main = () => {
+const ToUserRoute = () => {
+  const to: string = useParams().to!;
+  const [usersShoutouts, setUsersShoutouts] = useState<ShoutOut[]>();
   const { user } = useContext(AuthContext);
 
-  const [shoutOuts, setShoutOuts] = useState<ShoutOut[]>();
   useEffect(() => {
-    getAllShoutOuts().then((res) => {
-      setShoutOuts(res);
+    getAllShoutOutsToUser(to).then((res) => {
+      setUsersShoutouts(res);
     });
-  }, []);
+  }, [to]);
 
   const addShoutOut = (so: ShoutOut): void => {
     postNewShoutOut(so).then(() => {
-      getAllShoutOuts().then((response) => setShoutOuts(response));
+      getAllShoutOutsToUser(to).then((res) => {
+        setUsersShoutouts(res);
+      });
     });
   };
 
   const deleteHandler = (id: string): void => {
     deleteShoutout(id).then(() => {
-      getAllShoutOuts().then((response) => setShoutOuts(response));
+      getAllShoutOutsToUser(to).then((res) => {
+        setUsersShoutouts(res);
+      });
     });
   };
 
   const upvoteHandler = (user: User, id: string): void => {
     upvoteShoutout(user, id).then(() => {
-      getAllShoutOuts().then((res) => setShoutOuts(res));
+      getAllShoutOutsToUser(to).then((res) => {
+        setUsersShoutouts(res);
+      });
     });
   };
 
   return (
-    <div className="Main">
+    <div className="ToUserRoute">
+      <h2>All Shoutouts to: {to}</h2>
       {user ? (
-        <ShoutOutForm addShoutOut={addShoutOut} toUser="" />
+        <ShoutOutForm addShoutOut={addShoutOut} toUser={to} />
       ) : (
         <p>Please sign in to add a shoutout</p>
       )}
       <ul>
-        {shoutOuts?.map((item) => (
-          <ShoutOutComponent
+        {usersShoutouts?.map((item) => (
+          <ShoutOutListItem
             key={item._id}
             shoutOut={item}
             deleteHandler={deleteHandler}
@@ -60,4 +69,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default ToUserRoute;

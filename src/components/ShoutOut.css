@@ -1,0 +1,68 @@
+.ShoutOut {
+  margin: 10px;
+  border: 1px solid lightslategray;
+  border-radius: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ShoutOut .shoutout-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(207, 207, 207);
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px 10px 0 0;
+}
+
+.ShoutOut .from-container {
+  display: flex;
+  align-items: baseline;
+}
+
+.ShoutOut .from-img {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  position: relative;
+  top: 7px;
+  margin-right: 7px;
+}
+
+.ShoutOut .shoutout-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  /* object-position: center; */
+}
+
+.ShoutOut button {
+  background-color: rgb(55, 55, 55);
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.ShoutOut .to-from {
+  margin-right: 7px;
+  font-family: "Kdam Thmor Pro", sans-serif;
+  font-size: 14px;
+}
+
+.ShoutOut .shoutout-text {
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+.ShoutOut .votes-container {
+  display: flex;
+  align-items: center;
+}
+
+.ShoutOut .votes-container button {
+  margin: 10px;
+}
