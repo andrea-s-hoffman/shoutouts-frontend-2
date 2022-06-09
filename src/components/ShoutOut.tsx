@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import ShoutOutModel, { User } from "../models/ShoutOut";
-import { upvoteShoutout } from "../services/shoutOutService";
 import "./ShoutOut.css";
 
 interface Props {

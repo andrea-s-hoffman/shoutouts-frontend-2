@@ -23,7 +23,7 @@ const MeRoute = () => {
     } else {
       navigate("/");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   const upvoteHandler = (user: User, id: string): void => {
     upvoteShoutout(user, id).then(() => {
